@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +9,9 @@ namespace RoverList
     public class RoverList<T> : RoverListBase<T>
     {
         // Add any variables you need here
-        
+
+        bool headless = true;
+
         public RoverList ()
         {
 
@@ -19,7 +21,18 @@ namespace RoverList
 
         public override void Add(T data)
         {
-            throw new NotImplementedException();
+            if (headless)
+            {
+                head = new Node(data);
+                current = head;
+                headless = false;
+            }
+            else
+            {
+                current.Next = new Node(data);
+                current = current.Next;
+                current.Next = null;
+            }
         }
 
         public override void Add(int Position, T data)

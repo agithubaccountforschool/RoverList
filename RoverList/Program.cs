@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,9 @@ namespace RoverList
             // TODO:  Implement the RoverList class
             // TODO:  Create a RoverList and then fill it with 16 words
 
+            list.Add("word");
+            list.Add("another");
+            list.Add("yetAnother");
             // TODO:  Print out the list
 
             // TODO:  Prompt the user to input words, add those words to the list until they enter the word "done"
@@ -29,6 +32,7 @@ namespace RoverList
             // TODO:  Clear the list
             // TODO:  Print out the list
 
+            while (true) { }
 
         }
     }
