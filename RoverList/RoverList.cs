@@ -52,7 +52,12 @@ namespace RoverList
 
         public override void ListNodes()
         {
-            throw new NotImplementedException();
+            Node buffer = head;
+            while (buffer != null)
+            {
+                Console.WriteLine(buffer.Data);
+                buffer = buffer.Next;
+            }
         }
 
         public override bool RemoveAt(int Position)

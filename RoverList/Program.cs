@@ -18,6 +18,9 @@ namespace RoverList
             list.Add("word");
             list.Add("another");
             list.Add("yetAnother");
+
+            list.ListNodes();
+
             // TODO:  Print out the list
 
             // TODO:  Prompt the user to input words, add those words to the list until they enter the word "done"
