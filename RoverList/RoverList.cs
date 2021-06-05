@@ -17,27 +17,65 @@ namespace RoverList
 
         }
 
+        static Node findParentOf(Node start,int Position)
+        {
+            Node index = start;
+            int indexPos = 1;
+            for (; index != null && indexPos < Position; indexPos++)index = index.Next;
+            if (index != null)
+            {
+                return index;
+            }
+            else
+            {
+                Console.WriteLine("out of bounds error");
+                return null;
+            };
+        }
+
+        static int getSize(Node start)
+        {
+            Node index = start;
+            int size = 0;
+            while (index != null)
+            {
+                size++;
+                index = index.Next;
+            }
+            return size;
+        }
+
         public override int Count => throw new NotImplementedException();
 
         public override void Add(T data)
         {
-            if (headless)
-            {
-                head = new Node(data);
-                current = head;
-                headless = false;
-            }
-            else
-            {
-                current.Next = new Node(data);
-                current = current.Next;
-                current.Next = null;
-            }
+            Add(getSize(head), data);
         }
 
         public override void Add(int Position, T data)
         {
-            throw new NotImplementedException();
+            if (Position == 0)
+            {
+                if (headless)
+                {
+                    head = new Node(data);
+                    current = head;
+                    headless = false;
+                }
+                else
+                {
+                    Node buffer = head;
+                    head = new Node(data);
+                    head.Next = buffer;
+                }
+            }
+            else
+            {
+                Node index = findParentOf(head,Position); 
+                Node buffer = new Node(data);
+                buffer.Next=index.Next;
+                index.Next = buffer;
+            }
         }
 
         public override void Clear()
