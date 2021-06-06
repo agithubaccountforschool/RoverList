@@ -80,21 +80,22 @@ namespace RoverList
 
         public override void Clear()
         {
-            throw new NotImplementedException();
+            head = null;
+            headless = true;
         }
 
         public override T ElementAt(int Position)
         {
-            throw new NotImplementedException();
+            return findParentOf(head.Next,Position).Data;
         }
 
         public override void ListNodes()
         {
-            Node buffer = head;
-            while (buffer != null)
+            Node index = head;
+            while (index != null)
             {
-                Console.WriteLine(buffer.Data);
-                buffer = buffer.Next;
+                Console.WriteLine(index.Data);
+                index = index.Next;
             }
         }
 
