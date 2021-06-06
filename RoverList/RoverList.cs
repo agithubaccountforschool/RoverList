@@ -101,7 +101,23 @@ namespace RoverList
 
         public override bool RemoveAt(int Position)
         {
-            throw new NotImplementedException();
+            if (getSize(head) - 1 < Position) return false;
+            if (Position == 0)
+            {
+                if (head != null)
+                {
+                    head = head.Next;
+                    if (head == null) headless = true;
+                    return true;
+                }
+            }
+            else
+            {
+                Node index = findParentOf(head, Position);
+                index.Next = index.Next.Next;
+                return true;
+            }
+            return false;
         }
     }
 }

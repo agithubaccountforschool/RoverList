@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ namespace RoverList
             // TODO:  Create a RoverList and then fill it with 16 words
 
 
-            string[] words = "Implement the RoverList class Create a RoverList and then fill it with 16 words Print out".Split(' ');
+            string[] words = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen".Split(' ');
             foreach(string word in words){
                 list.Add(word);
             }
@@ -58,6 +58,14 @@ namespace RoverList
 
             // TODO:  Remove every word with an odd length
             // TODO:  Print out the list
+
+            for (int n = 1;true ;n++)
+            {
+                if(list.RemoveAt(n) == false)break;
+            }
+
+
+            list.ListNodes();
 
             // TODO:  Clear the list
             // TODO:  Print out the list
